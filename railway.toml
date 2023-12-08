@@ -1,0 +1,4 @@
+[build]
+builder = "nixpacks"
+watchPatterns = ["backEnd/**"]
+buildCommand = "cd backEnd && npm run start"
