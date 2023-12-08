@@ -3,7 +3,9 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 app.get("/", (req, res) => {
-	res.send("Hello from the backend! setup with railway");
+	res.send(
+		"Hello front! This is a message sent from the backend, hosted on railway!"
+	);
 });
 
 app.listen(port, () => {
