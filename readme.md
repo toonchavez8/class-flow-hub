@@ -1,4 +1,4 @@
-# School Management System
+# Class Flow Hub
 
 ## Description
 
