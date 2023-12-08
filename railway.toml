@@ -1,4 +1,10 @@
 [build]
 builder = "nixpacks"
 watchPatterns = ["backEnd/**"]
-buildCommand = "cd backEnd && npm install && npm run start"
+buildCommand = "cd backEnd && npm install"
+
+[deploy]
+startCommand = "cd backEnd && npm start"
+healthcheckPath = "/"
+healthcheckTimeout = 100
+restartPolicyType = "never"
