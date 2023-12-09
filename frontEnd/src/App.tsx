@@ -1,6 +1,4 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 
 function App() {
@@ -28,16 +26,18 @@ function App() {
 	return (
 		<section className="prose lg:prose-xl w-full max-w-2xl mx-auto transition-all duration-500">
 			<h1 className="text-3xl font-bold underline">Hello world!</h1>
-			<div className="card">
+			<div className="flex flex-col gap-4 px-8 py-4 ">
 				<button
 					onClick={() => setCount((count) => count + 1)}
 					className="btn btn-seondary"
 				>
 					count is {count}
 				</button>
-				<button onClick={fetchData}>Fetch Data</button>
-				{message && <p>{message}</p>}
-				<p>
+				<button onClick={fetchData} className="btn btn-accent">
+					Fetch Data
+				</button>
+				{message && <p className="text-accent text-2xl">{message}</p>}
+				<p className="text-sm">
 					test <code>src/App.tsx</code> and save to test HMR
 				</p>
 			</div>
