@@ -2,4 +2,5 @@
   command = "cd frontEnd && npm install && npm run build"
   functions = "netlify/functions"
   publish = "frontEnd/dist"
-  ignore = 'bash -c \'[[ "$CACHED_COMMIT_REF" == "$COMMIT_REF" ]] || [[ "${BRANCH}" == "main" || "${BRANCH}" == "developer" ]] || exit 0\''
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- frontEnd "
+
