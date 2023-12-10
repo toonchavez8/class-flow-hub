@@ -9,7 +9,7 @@ const LandingPage = () => {
 	return (
 		<>
 			<NavBar />
-			<main className="min-h-screen flex  isolate px-4 md:px-16w-full gradientBG relative overflow-hidden">
+			<main className="min-h-screen flex  isolate px-4 md:px-16w-full bg-base-300 text-primary relative overflow-hidden">
 				<figure className="font-thin geist max-h-screen flex flex-col no-scrollbar gap-16  ps-10 px-6 my-auto   overflow-x-auto opacity-gradient">
 					{array.map((item, index) => (
 						<div
@@ -20,7 +20,7 @@ const LandingPage = () => {
 						</div>
 					))}
 				</figure>
-				<section className="overflow-x-auto max-h-screen flex flex-col no-scrollbar gap-16 md:gap-72 ps-16  py-15 my-auto   text-left md:text-left lg:pe-[15rem] xl:pe-[45rem]  opacity-gradient text-white">
+				<section className="overflow-x-auto max-h-screen flex flex-col no-scrollbar gap-16 md:gap-72 ps-16  py-15 my-auto   text-left md:text-left lg:pe-[15rem] xl:pe-[45rem]  opacity-gradient ">
 					<h1 className="px-10 text-2xl md:flex-1 md:h-1/2  mt-32 md:mt-96   font-thin geist ">
 						Are you ready to revolutionize the way your school manages academic
 						processes? Introducing{" "}
@@ -66,7 +66,7 @@ const LandingPage = () => {
 							future of academic management. Sign up now to receive exclusive
 							updates and be notified when Class Flow Hub is up and running
 						</p>
-						<button className="btn btn-primary mb-48">Sign Up</button>
+						<button className="btn btn-accent mb-48">Sign Up</button>
 					</div>
 				</section>
 				<BgIcon />

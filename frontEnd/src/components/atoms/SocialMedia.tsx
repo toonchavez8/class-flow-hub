@@ -4,7 +4,7 @@ import { FaInstagram } from "react-icons/fa";
 
 const SocialMedia = () => {
 	return (
-		<div className="geist  flex justify-around items-center mt-auto font-thin py-2 opacity-gradient">
+		<div className="geist  flex justify-around items-center  font-thin py-2 opacity-gradient">
 			<h5 className="text-lg">All rights served</h5>
 			<a href="">
 				<FaThreads className="w-6 h-6" />
