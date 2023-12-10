@@ -1,20 +1,26 @@
 import NavBar from "../components/Layouts/NavBar";
+import BgIcon from "../components/atoms/BgIcon";
+import ScrollToExplore from "../components/atoms/ScrollToExplore";
+import "./LandingPage.css";
 
 const LandingPage = () => {
-	const array = [1, 2, 3, 4, 5, 6];
+	const array = ["01", "02", "03", "04", "05", "06"];
 
 	return (
 		<>
 			<NavBar />
-			<main className="min-h-screen flex   px-4 w-full gradientBG ">
-				<figure className="font-thin geist max-h-screen flex flex-col no-scrollbar gap-16  ps-10 px-4 my-auto">
+			<main className="min-h-screen flex  isolate px-4 md:px-16w-full gradientBG relative overflow-hidden">
+				<figure className="font-thin geist max-h-screen flex flex-col no-scrollbar gap-16  ps-10 px-6 my-auto   overflow-x-auto opacity-gradient">
 					{array.map((item, index) => (
-						<div className="" key={index}>
-							{item}{" "}
+						<div
+							className="first-of-type:mt-96 last-of-type:mb-96 last-of-type:pb-24 text-2xl"
+							key={index}
+						>
+							{item}
 						</div>
 					))}
 				</figure>
-				<section className="overflow-x-auto max-h-screen flex flex-col no-scrollbar gap-16 md:gap-72 ps-10 px-4 my-auto   text-left md:text-left max-w-4xl">
+				<section className="overflow-x-auto max-h-screen flex flex-col no-scrollbar gap-16 md:gap-72 ps-16  py-15 my-auto   text-left md:text-left lg:pe-[15rem] xl:pe-[45rem]  opacity-gradient text-white">
 					<h1 className="px-10 text-2xl md:flex-1 md:h-1/2  mt-32 md:mt-96   font-thin geist ">
 						Are you ready to revolutionize the way your school manages academic
 						processes? Introducing{" "}
@@ -51,7 +57,7 @@ const LandingPage = () => {
 						</p>
 					</div>
 
-					<div className="flex flex-col gap-10 px-10 md:flex-1 md:self-center">
+					<div className="flex flex-col gap-10 px-10 md:flex-1 md:self-center pb-64 md:gap-48">
 						<h2 className="geist text-2xl">
 							Be the First to Experience Class Flow Hub!
 						</h2>
@@ -60,9 +66,11 @@ const LandingPage = () => {
 							future of academic management. Sign up now to receive exclusive
 							updates and be notified when Class Flow Hub is up and running
 						</p>
-						<button className="btn btn-primary">Sign Up</button>
+						<button className="btn btn-primary mb-48">Sign Up</button>
 					</div>
 				</section>
+				<BgIcon />
+				<ScrollToExplore />
 			</main>
 		</>
 	);
