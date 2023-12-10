@@ -40,10 +40,10 @@ const NavBar: React.FC<NavBarProps> = () => {
 			<header className="flex justify-between items-center">
 				<img src={`/${logoFile}`} alt="logo" className="" />
 				<ul className="items-center geist font-thin max-w-2xl hidden md:flex justify-around w-full  text-xl capitalize ">
-					<li className="py-2 px-4  hover:bg-[#050d33] font-thin btn rounded bg-transparent border-none text-xl transition-all ease cursor-pointer ">
+					<li className="py-2 px-4 text-primary font-thin btn  rounded bg-transparent border-none text-xl transition-all ease cursor-pointer ">
 						Learn
 					</li>
-					<li className="py-2 px-4  hover:bg-[#050d33] btn font-thin rounded bg-transparent border-none text-xl transition-all ease cursor-pointer ">
+					<li className="py-2 px-4  btn font-thin text-primary  rounded bg-transparent border-none text-xl transition-all ease cursor-pointer ">
 						hub
 					</li>
 				</ul>
@@ -61,7 +61,7 @@ const NavBar: React.FC<NavBarProps> = () => {
 							aria-label="close sidebar"
 							className="drawer-overlay"
 						></label>
-						<ul className="menu p-4 w-80 min-h-full bg-[#2c3355] bg-opacity-5 backdrop-blur-sm text-base-content border-l border-opacity-25 border-gray-500 flex flex-col h-full capitalize ">
+						<ul className="menu p-4 w-80 min-h-full bg-base-100 bg-opacity-5 backdrop-blur-sm text-base-content border-l border-opacity-25 border-primary flex flex-col h-full capitalize ">
 							<li className="py-2 px-4  md:hidden hover:bg-[#050d33] font-thin btn rounded bg-transparent border-none text-xl transition-all ease cursor-pointer ">
 								Learn
 							</li>

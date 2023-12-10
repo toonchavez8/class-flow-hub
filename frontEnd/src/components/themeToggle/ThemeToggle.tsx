@@ -28,15 +28,20 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({
 	}, [theme]);
 
 	return (
-		<div className="mt-auto flex gap-6 items-center">
+		<div className="mt-auto flex flex-col gap-6 items-center">
+			<div className="text-primary font-thin text-xs -mb-6">
+				{theme === "lightTheme" ? "Light" : "Dark"}
+				Theme
+			</div>
+
 			<button
 				className="focus:outline-none flex w-full h-10 justify-around items-center px-10 rounded-full btn-primary text-lg"
 				onClick={toggleTheme}
 			>
-				<FaSun />
+				<FaSun className="fill-primary" />
 				<span
-					className={`border flex items-center cursor-pointer w-1/3 transition-all duration-300 ease rounded-full ${
-						theme === "lightTheme" ? "justify-start bg-base-100" : "justify-end"
+					className={`border border-primary bg-primary/10 flex items-center cursor-pointer w-1/3 transition-all duration-300 ease rounded-full ${
+						theme === "lightTheme" ? "justify-start " : "justify-end"
 					}`}
 					data-toggle-theme={
 						theme === "lightTheme" ? "darkTheme" : "lightTheme"
@@ -44,7 +49,7 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({
 				>
 					<span className={`rounded-full w-3 h-3 m-1 bg-primary`}></span>
 				</span>
-				<FaMoon />
+				<FaMoon className="fill-primary" />
 			</button>
 		</div>
 	);
