@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.geist {
+	font-family: geist;
+	src: url(./fonts/GeistVariableVF.ttf);
+}
+
+@layer utilities {
+	/* Hide scrollbar for Chrome, Safari and Opera */
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+	/* Hide scrollbar for IE, Edge and Firefox */
+	.no-scrollbar {
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
+	}
+}
+
+.gradientBG {
+	background: radial-gradient(
+			274.06% 89.16% at 49.87% 136.02%,
+			rgba(72, 125, 193, 0.17) 0%,
+			rgba(72, 125, 193, 0) 100%
+		),
+		radial-gradient(
+			169.38% 59.11% at 50% 100%,
+			rgba(4, 14, 38, 0.28) 0%,
+			rgba(4, 14, 38, 0) 100%
+		),
+		linear-gradient(0deg, #050c29 0%, #050c29 100%), #fff;
+
+	background-blend-mode: lighten, plus-lighter, normal, normal;
+}
