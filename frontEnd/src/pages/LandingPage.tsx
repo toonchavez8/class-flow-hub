@@ -2,6 +2,7 @@ import NavBar from "../components/Layouts/NavBar";
 import BgIcon from "../components/atoms/BgIcon";
 import ScrollToExplore from "../components/atoms/ScrollToExplore";
 import "./LandingPage.css";
+import { Link, Element } from "react-scroll";
 
 const LandingPage = () => {
 	const array = ["01", "02", "03", "04", "05", "06"];
@@ -11,17 +12,21 @@ const LandingPage = () => {
 			<NavBar />
 			<main className="min-h-screen flex  isolate px-4 md:px-16w-full bg-base-300 text-primary relative overflow-hidden">
 				<figure className="font-thin geist max-h-screen flex flex-col no-scrollbar gap-16  ps-10 px-6 my-auto   overflow-x-auto opacity-gradient">
-					{array.map((item, index) => (
-						<div
-							className="first-of-type:mt-96 last-of-type:mb-96 last-of-type:pb-24 text-2xl"
-							key={index}
+					{array.map((item) => (
+						<Link
+							key={item}
+							to={`section-${item}`}
+							spy={true}
+							smooth={true}
+							duration={500}
+							className={`first-of-type:mt-96 last-of-type:mb-96 last-of-type:pb-24 text-2xl`}
 						>
-							{item}
-						</div>
+							{item}{" "}
+						</Link>
 					))}
 				</figure>
 				<section className="overflow-x-auto max-h-screen flex flex-col no-scrollbar gap-16 md:gap-72 ps-16  py-15 my-auto   text-left md:text-left lg:pe-[15rem] xl:pe-[45rem]  opacity-gradient ">
-					<h1 className="px-10 text-2xl md:flex-1 md:h-1/2  mt-32 md:mt-96   font-thin geist ">
+					<h1 className="px-10 text-2xl md:text-4xl md:flex-1 md:h-1/2  mt-32 md:mt-96  font-thin geist ">
 						Are you ready to revolutionize the way your school manages academic
 						processes? Introducing{" "}
 						<span className="font-normal">Class Flow Hub.</span>
