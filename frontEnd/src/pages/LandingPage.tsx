@@ -2,7 +2,7 @@ import NavBar from "../components/Layouts/NavBar";
 import BgIcon from "../components/atoms/BgIcon";
 import ScrollToExplore from "../components/atoms/ScrollToExplore";
 import "./LandingPage.css";
-import { Link, Element } from "react-scroll";
+import { Link } from "react-scroll";
 
 const LandingPage = () => {
 	const array = ["01", "02", "03", "04", "05", "06"];
