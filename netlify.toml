@@ -1,5 +1,5 @@
 [build]
-  command = "cd frontEnd && npm install && npm run build"
+  command = "cd frontend && npm install && npm run build"
   functions = "netlify/functions"
   publish = "frontEnd/dist"
   ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- frontEnd "
