@@ -34,3 +34,7 @@
 
 	background-blend-mode: lighten, plus-lighter, normal, normal;
 }
+
+.debug {
+	border: 1px solid red;
+}
