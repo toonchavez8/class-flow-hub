@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .geist {
-	font-family: geist;
+	font-family: geist, sans-serif;
 	src: url(./fonts/GeistVariableVF.ttf);
 }
 
