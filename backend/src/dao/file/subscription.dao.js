@@ -43,7 +43,7 @@ export default class SubscriptionFileDAO {
 
 		if (existingSubscription) {
 			// If email exists, return a message
-			return { message: "Email already exists in the database." };
+			return { status: 409, message: "Email already exists in the database." };
 		}
 
 		// If email doesn't exist, create a new subscription with an ID
