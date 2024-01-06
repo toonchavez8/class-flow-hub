@@ -9,14 +9,14 @@ const port = config.PORT;
 // Use cors middleware to enable CORS for all routes
 app.use(cors());
 
+// middlewares
+app.use(express.json());
+
 app.get("/", (req, res) => {
-	res.send(
+	res.json(
 		"Hello front! This is a message sent from the backend, hosted on railway!"
 	);
 });
-
-// middlewares
-app.use(express.json());
 
 //routes
 app.use("/api/subscribe", subscribeRoutes);
