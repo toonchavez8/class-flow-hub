@@ -22,5 +22,7 @@ app.use(express.json());
 app.use("/api/subscribe", subscribeRoutes);
 
 app.listen(port, () => {
-	console.log(`Server is running on port ${port} setup for railway!`);
+	console.log(
+		`Server is running on port ${port} setup for railway! Local:  http://localhost:${port}/`
+	);
 });
