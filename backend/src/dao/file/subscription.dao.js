@@ -34,7 +34,6 @@ export default class SubscriptionFileDAO {
 	}
 
 	getAll = () => this.subscriptions;
-
 	create = (email) => {
 		// Check if the email already exists
 		const existingSubscription = this.subscriptions.find(
@@ -46,10 +45,10 @@ export default class SubscriptionFileDAO {
 			return { status: 409, message: "Email already exists in the database." };
 		}
 
-		// If email doesn't exist, create a new subscription with an ID
 		const newSubscription = {
 			id: this.getNextId(), // Call a method to get the next ID
 			email,
+			createdAt: new Date(), // Add the timestamp
 		};
 
 		this.subscriptions.push(newSubscription);
