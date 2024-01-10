@@ -78,7 +78,7 @@ const EmailForm = () => {
 			</label>
 			{submitStatus === "success" ? (
 				<button
-					className="btn btn-success disabled:btn-success disabled:bg-success disabled:opacity-80 "
+					className="btn disabled:btn-success disabled:bg-success disabled:opacity-80 disabled:text-primary"
 					disabled
 				>
 					Email sent successfully!
