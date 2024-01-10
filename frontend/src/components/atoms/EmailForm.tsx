@@ -3,15 +3,20 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 const EmailForm = () => {
+	// State to track the form submission status
 	const [submitStatus, setSubmitStatus] = useState<
 		"default" | "success" | "fail"
 	>("default");
+
+	// State to store error message
 	const [errorMessage, setErrorMessage] = useState<string>("");
 
+	// Form validation schema
 	const validationSchema = Yup.object({
 		email: Yup.string().email("Invalid email format").required("Required"),
 	});
 
+	// Formik form handling
 	const formik = useFormik({
 		initialValues: {
 			email: "",
@@ -19,6 +24,7 @@ const EmailForm = () => {
 		validationSchema: validationSchema,
 		onSubmit: async (values) => {
 			try {
+				// Make API request to subscribe
 				const response = await fetch(
 					`${import.meta.env.VITE_API_ENDPOINT}/api/subscribe`,
 					{
@@ -37,12 +43,16 @@ const EmailForm = () => {
 					// Handle error response
 					const data = await response.json();
 
+					// Set error message
 					setErrorMessage(
 						data.message || "Failed to subscribe. Please try again later."
 					);
+
+					// Set submission status to fail
 					setSubmitStatus("fail");
 				}
 			} catch (error) {
+				// Log error and set submission status to fail
 				console.error("Error making API request", error);
 				setSubmitStatus("fail");
 				setErrorMessage("Failed to subscribe. Please try again later.");
@@ -52,6 +62,7 @@ const EmailForm = () => {
 
 	return (
 		<form className="flex flex-col gap-2" onSubmit={formik.handleSubmit}>
+			{/* Email input field */}
 			<label
 				className={`form-control w-full  ${
 					formik.touched.email && formik.errors.email ? "input-error" : ""
@@ -59,6 +70,7 @@ const EmailForm = () => {
 			>
 				<div className="label">
 					<span className={"label-text text-xs md:text-lg"}>
+						{/* Display error message if submission fails */}
 						{submitStatus === "fail" ? (
 							<span className="badge badge-error">{errorMessage}</span>
 						) : (
@@ -66,6 +78,7 @@ const EmailForm = () => {
 						)}
 					</span>
 				</div>
+				{/* Email input */}
 				<input
 					type="email"
 					placeholder="placeholder@email.com"
@@ -76,6 +89,7 @@ const EmailForm = () => {
 					disabled={submitStatus === "success"}
 				/>
 			</label>
+			{/* Submit button or success message */}
 			{submitStatus === "success" ? (
 				<button
 					className="btn disabled:btn-success disabled:bg-success disabled:opacity-80 disabled:text-primary"
