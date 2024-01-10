@@ -1,6 +1,8 @@
+// EmailForm.tsx
 import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import classNames from "classnames";
 
 const EmailForm = () => {
 	// State to track the form submission status
@@ -60,31 +62,49 @@ const EmailForm = () => {
 		},
 	});
 
+	// Extracted statement for error or success message
+	let message;
+	if (submitStatus === "fail") {
+		message = errorMessage;
+	} else if (submitStatus === "success") {
+		message = "We'll be in touch!";
+	} else {
+		message = "What is your email?";
+	}
+
+	// Extracted styles and classes based on submitStatus
+	const labelClass = `text-xs md:text-lg ${
+		submitStatus === "fail" ? "badge badge-error md:badge-lg" : "label-text"
+	}`;
+
+	const getEmailInputClass = () => {
+		return classNames(
+			"input",
+			"input-bordered",
+			"w-full",
+			submitStatus === "success" && "disabled:input-success",
+			formik.touched.email && formik.errors.email && "input-error",
+			submitStatus === "fail" && "input-error"
+		);
+	};
+
 	return (
 		<form className="flex flex-col gap-2" onSubmit={formik.handleSubmit}>
 			{/* Email input field */}
 			<label
-				className={`form-control w-full  ${
+				className={`form-control w-full ${
 					formik.touched.email && formik.errors.email ? "input-error" : ""
 				}`}
 			>
 				<div className="label">
-					<span className={"label-text text-xs md:text-lg"}>
-						{/* Display error message if submission fails */}
-						{submitStatus === "fail" ? (
-							<span className="badge badge-error">{errorMessage}</span>
-						) : (
-							"What is your email?"
-						)}
-					</span>
+					{/* Display error or success message based on submit status */}
+					<span className={labelClass}>{message}</span>
 				</div>
 				{/* Email input */}
 				<input
 					type="email"
 					placeholder="placeholder@email.com"
-					className={`input input-bordered w-full ${
-						formik.touched.email && formik.errors.email ? "input-error" : ""
-					}`}
+					className={getEmailInputClass()}
 					{...formik.getFieldProps("email")}
 					disabled={submitStatus === "success"}
 				/>
