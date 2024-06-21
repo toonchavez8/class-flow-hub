@@ -8,8 +8,7 @@
 	],
 	"scripts": {
 		"build": "turbo build",
-		"dev": "turbo dev",
-		"clean": "turbo clean && rm -rf node_modules && rm -rf .turbo && rm -rf package-lock.json"
+		"dev": "turbo dev"
 	},
 	"keywords": [],
 	"author": "",
