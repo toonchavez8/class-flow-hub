@@ -1,5 +1,6 @@
 import NavBar from "../components/Layouts/NavBar";
 import BgIcon from "../components/atoms/BgIcon";
+import EmailForm from "../components/atoms/EmailForm";
 import ScrollToExplore from "../components/atoms/ScrollToExplore";
 import "./LandingPage.css";
 import { Link } from "react-scroll";
@@ -71,7 +72,7 @@ const LandingPage = () => {
 							future of academic management. Sign up now to receive exclusive
 							updates and be notified when Class Flow Hub is up and running
 						</p>
-						<button className="btn btn-accent mb-48">Sign Up</button>
+						<EmailForm />
 					</div>
 				</section>
 				<BgIcon />

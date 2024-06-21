@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .geist {
-	font-family: geist;
+	font-family: geist, sans-serif;
 	src: url(./fonts/GeistVariableVF.ttf);
 }
 
@@ -33,4 +33,8 @@
 		linear-gradient(0deg, #050c29 0%, #050c29 100%), #fff;
 
 	background-blend-mode: lighten, plus-lighter, normal, normal;
+}
+
+.debug {
+	border: 1px solid red;
 }
