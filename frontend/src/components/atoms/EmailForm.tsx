@@ -37,6 +37,7 @@ const EmailForm = () => {
 						body: JSON.stringify(values),
 					}
 				);
+				console.log("🚀 ~ onSubmit: ~ response:", response);
 
 				if (response.ok) {
 					// Handle successful response
