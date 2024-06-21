@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import config from "./config/config.js";
 import subscribeRoutes from "./routers/subscribeRoutes.js";
+import mongoose from "mongoose";
 
 const app = express();
 const port = config.PORT;
@@ -11,6 +12,17 @@ app.use(cors());
 
 // Parse JSON bodies
 app.use(express.json());
+
+async function connectToDatabase() {
+	try {
+		await mongoose.connect(config.MONGO.URI);
+		console.log("Connected to MongoDB on port", config.MONGO.URI);
+	} catch (error) {
+		console.error("Failed to connect to MongoDB:", error);
+	}
+}
+
+connectToDatabase();
 
 // Root Routes
 app.get("/", (req, res) => {
