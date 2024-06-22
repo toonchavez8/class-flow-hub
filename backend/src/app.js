@@ -15,8 +15,17 @@ app.use(express.json());
 
 async function connectToDatabase() {
 	try {
-		await mongoose.connect(config.MONGO.URI);
-		console.log("Connected to MongoDB on port", config.MONGO.URI);
+		//connect to database and name the database
+		await mongoose.connect(config.MONGO.URI, {
+			dbName: config.MONGO.DB,
+		});
+
+		console.log(
+			"Connected to MongoDB on port",
+			config.PORT,
+			"with database",
+			config.PERSISTANCE
+		);
 	} catch (error) {
 		console.error("Failed to connect to MongoDB:", error);
 	}

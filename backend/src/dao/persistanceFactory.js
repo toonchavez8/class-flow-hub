@@ -4,7 +4,11 @@ import config from "../config/config.js";
 export let SubscriptionDAO;
 
 // If the PERSISTANCE environment variable is set to "MONGO", import and assign the SubscriptionMongoDAO.
-if (config.PERSISTANCE === "MONGO") {
+if (
+	config.PERSISTANCE === "MONGO" ||
+	config.PERSISTANCE === "MONGOLOCAL" ||
+	config.PERSISTANCE === "MONGOATLAS"
+) {
 	// If MongoDB is selected, import and assign the SubscriptionMongoDAO.
 	const { default: SubscriptionMongoDAO } = await import(
 		"./mongo/subscription.mongo.dao.js"
