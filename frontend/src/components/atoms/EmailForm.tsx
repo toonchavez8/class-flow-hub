@@ -119,7 +119,7 @@ const EmailForm = () => {
 					Email sent successfully!
 				</button>
 			) : (
-				<button type="submit" className="btn btn-accent mb-48">
+				<button type="submit" className="mb-48 btn btn-accent">
 					Sign Up
 				</button>
 			)}
