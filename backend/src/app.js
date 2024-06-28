@@ -31,7 +31,7 @@ async function connectToDatabase() {
 	}
 }
 
-// Connect to database
+// Connect to database and start the server
 connectToDatabase();
 
 // Root Routes
