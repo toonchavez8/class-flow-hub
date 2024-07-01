@@ -1,21 +1,22 @@
 {
-	"name": "01-class-flow-hub",
-	"version": "1.0.0",
-	"description": "This web application is designed to manage the academic processes of a school. It includes features such as enrollment, viewing academic results, and scheduling/following up on appointments with teachers/guardians.",
-	"workspaces": [
-		"backend/**",
-		"frontend/**",
-		"packages/**"
-	],
-	"scripts": {
-		"build": "turbo build",
-		"dev": "turbo dev",
-		"clean": "turbo clean && rm -rf node_modules && rm -rf .turbo && rm -rf package-lock.json"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"devDependencies": {
-		"turbo": "^1.11.2"
-	}
+  "name": "01-class-flow-hub",
+  "version": "1.0.0",
+  "description": "This web application is designed to manage the academic processes of a school. It includes features such as enrollment, viewing academic results, and scheduling/following up on appointments with teachers/guardians.",
+  "workspaces": [
+    "backend/**",
+    "frontend/**",
+    "packages/**"
+  ],
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "clean": "turbo clean && rm -rf node_modules && rm -rf .turbo && rm -rf package-lock.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "turbo": "^2.0.6"
+  },
+  "packageManager": "npm@10.8.1"
 }
