@@ -41,5 +41,6 @@ export const subscribeEmail = async (req, res) => {
 	}
 
 	// If the subscription was successful, respond with a created status
+
 	res.status(201).json({ status: 201, message: "Subscribed" });
 };
