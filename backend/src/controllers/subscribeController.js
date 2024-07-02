@@ -39,8 +39,6 @@ export const subscribeEmail = async (req, res) => {
 		res.status(404).json({ status: 404, message: "Resource not found" });
 		return;
 	}
-
 	// If the subscription was successful, respond with a created status
-
-	res.status(201).json({ status: 201, message: "Subscribed" });
+	res.status(201).json({ status: 201, message: "Subscribed", email: email });
 };

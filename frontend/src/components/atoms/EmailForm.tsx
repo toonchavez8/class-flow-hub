@@ -3,6 +3,11 @@ import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import classNames from "classnames";
+import { Resend } from "resend";
+import { WaitlistEmail } from "@repo/transactionals";
+import { Send } from "../../../../packages/transactionals/.react-email/src/components/send";
+
+const resend = new Resend(import.meta.env.VITE_RESEND_API_KEY);
 
 const EmailForm = () => {
 	// State to track the form submission status
@@ -39,8 +44,25 @@ const EmailForm = () => {
 				);
 
 				if (response.ok) {
-					// Handle successful response
+					alert("creating email");
 					setSubmitStatus("success");
+					// Send resend email to the user confirmation email
+					const { data, error } = await resend.emails.send({
+						from: "toonchavez8@gmail.com",
+						to: values.email,
+						subject: "Confirm your subscription",
+						react: <WaitlistEmail name={values.email} />,
+					});
+
+					if (error) {
+						return alert("error");
+					}
+
+					console.log("data", data);
+
+					alert("email sent");
+
+					// Handle successful response
 				} else {
 					// Handle error response
 					const data = await response.json();

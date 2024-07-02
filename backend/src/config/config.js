@@ -8,6 +8,9 @@ export default {
 		DB: process.env.MONGO_DB,
 	},
 	PERSISTANCE: process.env.PERSISTANCE,
+	RESEND: {
+		API_KEY: process.env.RESEND_API_KEY,
+	},
 };
 
 function mongoURI() {
