@@ -1,6 +1,6 @@
 import { subscriptionService } from "../respositories/index.js";
 import isValidEmailFormat from "../utils/isValidEmail.js";
-
+import { resendService } from "../utils/resend.js";
 
 // Controller function to get all subscribed emails
 export const getSubscribedEmails = async (req, res) => {
@@ -16,36 +16,50 @@ export const subscribeEmail = async (req, res) => {
 
 	// Check if the email has a valid format
 	if (!isValidEmailFormat(email)) {
-		res.status(422).json({ status: 422, message: "Invalid email format" });
-		return;
+		return res
+			.status(422)
+			.json({ status: 422, message: "Invalid email format" });
 	}
 
-	// Subscribe the email using the subscriptionService
-	const subscribe = await subscriptionService.subscribeEmail(email);
+	try {
+		// Subscribe the email using the subscriptionService
+		const subscribe = await subscriptionService.subscribeEmail(email);
 
-	if (error) {
-		console.log("error", error);
-		res.status(500).json({ status: 500, message: "Internal server error" });
-		return;
-	}
+		if (!subscribe) {
+			return res
+				.status(404)
+				.json({ status: 404, message: "Resource not found" });
+		}
 
-	// Log the subscription details
-	console.log("subscribe", subscribe);
+		if (subscribe.status === 409) {
+			return res
+				.status(409)
+				.json({ status: 409, message: "Email already subscribed" });
+		}
 
-	// Handle different subscription statuses
-	if (subscribe.status === 409) {
-		// If the email is already subscribed, respond with a conflict status
+		// Send confirmation email
+		const { data, error } = await resendService.emails.send({
+			from: "classflowhub@toonchavez.dev",
+			to: email,
+			subject: "Confirm your subscription",
+			html: "<strong>it works!</strong>",
+		});
+
+		if (error) {
+			return res
+				.status(400)
+				.json({
+					status: 400,
+					message: "Failed to send confirmation email",
+					error,
+				});
+		}
+
+		res.status(201).json({ status: 201, message: "Subscribed", email, data });
+	} catch (error) {
+		console.error("Error subscribing email:", error);
 		res
-			.status(409)
-			.json({ status: subscribe.status, message: "Email already subscribed" });
-		return;
+			.status(500)
+			.json({ status: 500, message: "Internal server error", error });
 	}
-
-	if (!subscribe) {
-		// If the subscription was not successful, respond with a not found status
-		res.status(404).json({ status: 404, message: "Resource not found" });
-		return;
-	}
-	// If the subscription was successful, respond with a created status
-	res.status(201).json({ status: 201, message: "Subscribed", email: email });
 };
