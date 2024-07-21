@@ -4,8 +4,7 @@
   "description": "This web application is designed to manage the academic processes of a school. It includes features such as enrollment, viewing academic results, and scheduling/following up on appointments with teachers/guardians.",
   "workspaces": [
     "backend/**",
-    "frontend/**",
-    "packages/**"
+    "frontend/**"
   ],
   "scripts": {
     "build": "turbo build",

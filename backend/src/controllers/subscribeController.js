@@ -1,6 +1,7 @@
 import { subscriptionService } from "../respositories/index.js";
 import isValidEmailFormat from "../utils/isValidEmail.js";
 
+
 // Controller function to get all subscribed emails
 export const getSubscribedEmails = async (req, res) => {
 	const subscriptions = await subscriptionService.getSubscribedEmails();
@@ -21,6 +22,12 @@ export const subscribeEmail = async (req, res) => {
 
 	// Subscribe the email using the subscriptionService
 	const subscribe = await subscriptionService.subscribeEmail(email);
+
+	if (error) {
+		console.log("error", error);
+		res.status(500).json({ status: 500, message: "Internal server error" });
+		return;
+	}
 
 	// Log the subscription details
 	console.log("subscribe", subscribe);
