@@ -37,11 +37,11 @@ const EmailForm = () => {
 						body: JSON.stringify(values),
 					}
 				);
-				console.log("🚀 ~ onSubmit: ~ response:", response);
 
 				if (response.ok) {
-					// Handle successful response
 					setSubmitStatus("success");
+
+					// Handle successful response
 				} else {
 					// Handle error response
 					const data = await response.json();
